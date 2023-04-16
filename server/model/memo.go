@@ -4,7 +4,7 @@ import "time"
 
 type (
 	// A TODO expresses ...
-	TODO struct {
+	Memo struct {
 		ID          int64     `json:"id"`
 		Subject     string    `json:"subject"`
 		Description string    `json:"description"`
@@ -22,30 +22,30 @@ type (
 	}
 
 	// A ReadTODORequest expresses ...
-	ReadTODORequest struct {
+	ReadMemoRequest struct {
 		PrevID int64 `json:"prev_id"`
 		//Size   int64 `json:"size"`
 	}
 	// A ReadTODOResponse expresses ...
-	ReadTODOResponse struct {
-		TODOs []*TODO `json:"todos"`
+	ReadMemoResponse struct {
+		Memos []*Memo `json:"memos"`
 	}
 
 	// A UpdateTODORequest expresses ...
-	UpdateTODORequest struct {
+	UpdateMemoRequest struct {
 		ID          int64  `json:"id"`
 		Subject     string `json:"subject"`
 		Description string `json:"description"`
 	}
 	// A UpdateTODOResponse expresses ...
-	UpdateTODOResponse struct {
-		TODO TODO `json:"todo"`
+	UpdateMemoResponse struct {
+		TODO Memo `json:"memo"`
 	}
 
 	// A DeleteTODORequest expresses ...
-	DeleteTODORequest struct {
+	DeleteMemoRequest struct {
 		IDs []int64 `json:"ids"`
 	}
 	// A DeleteTODOResponse expresses ...
-	DeleteTODOResponse struct{}
+	DeleteMemoResponse struct{}
 )

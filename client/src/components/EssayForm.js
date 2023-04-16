@@ -16,14 +16,16 @@ export default class EssayForm extends React.Component {
       this.setState({value: event.target.value});
     }
   
-    handleSubmit(event) {
+    handleSubmit(event){
+      
       let params = new URLSearchParams();
-      params.append('apikey', this.state.value);
-      axios.post("https://localhost:8080/post", params)
+      let text  = this.state.value;
+      params.append('apikey', text);
+      axios.post("http://127.0.0.1:8080/post", params)
         .then(function (response) {
           // 送信成功時の処理
           console.log(response);
-          alert('メモが保存されました: ' + this.state.value);
+          alert('メモが保存されました: ' + text);
         })
         .catch(function (error) {
           // 送信失敗時の処理
@@ -32,6 +34,7 @@ export default class EssayForm extends React.Component {
         });
         
       event.preventDefault();
+     
     }
   
     render() {

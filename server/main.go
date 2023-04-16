@@ -50,6 +50,7 @@ func realMain() error {
 	mux := router.NewRouter(memoDB)
 
 	// TODO: サーバーをlistenする
-	http.ListenAndServeTLS(port, "server.crt", "server.key", mux)
+	//http.ListenAndServeTLS(port, "server.crt", "server.key", mux)
+	http.ListenAndServe(port, mux)
 	return nil
 }

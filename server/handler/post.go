@@ -15,7 +15,7 @@ func NewMemoHandler() *MemoHandler {
 }
 
 func (m *MemoHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	tmpHR := &model.CreateMemoResponse{Message: "OK"}
+	tmpHR := &model.CreateMemoResponse{Message: "Hello World!"}
 
 	err := json.NewEncoder(w).Encode(tmpHR)
 	if err != nil {
