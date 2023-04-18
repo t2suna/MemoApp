@@ -21,7 +21,7 @@ export default class EssayForm extends React.Component {
       let params = new URLSearchParams();
       let text  = this.state.value;
       params.append('apikey', text);
-      axios.post("http://127.0.0.1:8080/post", params)
+      axios.post("http://127.0.0.1:8080/todos", params)
         .then(function (response) {
           // 送信成功時の処理
           console.log(response);
