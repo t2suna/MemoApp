@@ -10,6 +10,6 @@ import (
 
 func NewRouter(serviceNameDB *sql.DB) *http.ServeMux {
 	mux := http.NewServeMux()
-	mux.Handle("/post", middleware.CORS(handler.NewMemoHandler()))
+	mux.Handle("/memo", middleware.CORS(handler.NewMemoHandler()))
 	return mux
 }

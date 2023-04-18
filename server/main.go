@@ -21,7 +21,7 @@ func realMain() error {
 	// config values
 	const (
 		defaultPort   = ":8080"
-		defaultDBPath = ".sqlite3/todo.db"
+		defaultDBPath = ".sqlite3/memo.db"
 	)
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -46,11 +46,8 @@ func realMain() error {
 		return err
 	}
 	defer memoDB.Close()
-	// NOTE: 新しいエンドポイントの登録はrouter.NewRouterの内部で行うようにする
+	// 新しいエンドポイントの登録はrouter.NewRouterの内部で行うようにする
 	mux := router.NewRouter(memoDB)
-
-	// TODO: サーバーをlistenする
-	//http.ListenAndServeTLS(port, "server.crt", "server.key", mux)
 	http.ListenAndServe(port, mux)
 	return nil
 }
